@@ -10,6 +10,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'Shougo/neocomplete.vim'
     let g:neocomplete#enable_at_startup = 1
 
+Plugin 'jiangmiao/auto-pairs'
+
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<tab>"
@@ -34,21 +36,17 @@ Plugin 'fatih/vim-go'
     au FileType go nmap <Leader>m <Plug>(go-rename)
 Plugin 'majutsushi/tagbar'
     nmap <c-t> :TagbarToggle<CR>
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic' " Syntax highlighting
 Plugin 'vim-scripts/SyntaxRange' 	 " Allow ranges within a file to define different syntax mappings
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+    map <Leader>n :NERDTreeToggle<CR>
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vividchalk'
-Plugin 'mattn/webapi-vim' 		 " vim interface to web apis.  Required for gist-vim
-Plugin 'mattn/gist-vim'                  " create gists trivially from buffer, selection, etc.
-  let g:gist_open_browser_after_post = 1
-  let g:gist_detect_filetype = 2
-  let g:gist_post_private = 1
-  if has('macunix')
-    let g:gist_clip_command = 'pbcopy'
-  endif
 Plugin 'honza/dockerfile.vim'
 Plugin 'bling/vim-airline'       " UI statusbar niceties
   set laststatus=2               " enable airline even if no splits
@@ -76,14 +74,9 @@ Plugin 'bling/vim-airline'       " UI statusbar niceties
         \ 'c' : 'CMD   ',
         \ '': 'V-BLCK',
         \ }
-Plugin 'chriskempson/base16-vim' " base16 theme
 Plugin 'dandorman/vim-colors'
-Plugin 'roman/golden-ratio'
 
 Plugin 'kien/ctrlp.vim.git'
-
-
-
 Plugin 'tpope/vim-vinegar'
 
 call vundle#end()            " required
@@ -142,7 +135,7 @@ let mapleader=","
 
 set t_Co=256
 set background=light
-color solarized
+color molokai
 
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
@@ -168,17 +161,5 @@ map <Down> <Nop>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
-
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
-
 
 set guioptions="agimrLt"
