@@ -11,6 +11,7 @@ Plugin 'Shougo/neocomplete.vim'
     let g:neocomplete#enable_at_startup = 1
 
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'pangloss/vim-javascript'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
