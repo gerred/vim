@@ -10,17 +10,17 @@ Plugin 'tpope/vim-surround'
 Plugin 'Shougo/neocomplete.vim'
     let g:neocomplete#enable_at_startup = 1
 
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'pangloss/vim-javascript'
+Plugin 'markcornick/vim-vagrant'
+Plugin 'wting/rust.vim'
 
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 Plugin 'cespare/vim-toml'
 Plugin 'fatih/vim-go'
-    let g:go_fmt_command = "goimports"
+    "let g:go_fmt_command = "goimports"
     let g:go_highlight_functions = 1
     let g:go_highlight_methods = 1
     let g:go_highlight_structs = 1
@@ -41,11 +41,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic' " Syntax highlighting
 Plugin 'vim-scripts/SyntaxRange' 	 " Allow ranges within a file to define different syntax mappings
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-    map <Leader>n :NERDTreeToggle<CR>
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'honza/dockerfile.vim'
@@ -82,14 +77,15 @@ Plugin 'tpope/vim-vinegar'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+set mouse=a
 
 set hidden
 " remember more commands and search history
 set history=10000
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set laststatus=2
 set showmatch
@@ -135,10 +131,11 @@ let mapleader=","
 
 
 set t_Co=256
+set t_ut=
 set background=light
 color molokai
 
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+"set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
