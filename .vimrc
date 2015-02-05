@@ -6,7 +6,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'wting/rust.vim'
 
 Plugin 'Shougo/neocomplete.vim'
     let g:neocomplete#enable_at_startup = 1
