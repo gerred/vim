@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'wting/rust.vim'
 
 Plugin 'Shougo/neocomplete.vim'
     let g:neocomplete#enable_at_startup = 1
@@ -41,6 +42,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic' " Syntax highlighting
 Plugin 'vim-scripts/SyntaxRange' 	 " Allow ranges within a file to define different syntax mappings
 Plugin 'scrooloose/nerdcommenter'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'honza/dockerfile.vim'
@@ -101,17 +103,14 @@ set switchbuf=useopen
 set numberwidth=5
 set showtabline=2
 set winwidth=79
-" This makes RVM work inside Vim. I have no idea why.
-set shell=bash
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
-" Store temporary files in a central spot
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set nobackup
+set nowb
+set noswapfile
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " display incomplete commands
@@ -135,7 +134,9 @@ set t_ut=
 set background=light
 color molokai
 
-"set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+if has('mouse')
+  set mouse=a
+endif
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -161,3 +162,7 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 set guioptions="agimrLt"
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
