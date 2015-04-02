@@ -5,76 +5,41 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-surround'
 
-Plugin 'Shougo/neocomplete.vim'
-    let g:neocomplete#enable_at_startup = 1
-
-Plugin 'pangloss/vim-javascript'
-Plugin 'markcornick/vim-vagrant'
+""" LANGUAGES
 Plugin 'wting/rust.vim'
+Plugin 'honza/dockerfile.vim'
+Plugin 'fatih/vim-go'
+Plugin 'cespare/vim-toml'
+Plugin 'jimenezrick/vimerl'
+Plugin 'edklev/erlang-motions.vim'
+Plugin 'yosssi/vim-ace'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'slim-template/vim-slim'
 
+""" IDE THINGS
+Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
     let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-Plugin 'cespare/vim-toml'
-Plugin 'fatih/vim-go'
-    "let g:go_fmt_command = "goimports"
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_disable_autoinstall = 0  
-    au FileType go nmap <leader>r <Plug>(go-run)
-    au FileType go nmap <leader>b <Plug>(go-build)
-    au FileType go nmap <leader>t <Plug>(go-test)
-    au FileType go nmap <leader>c <Plug>(go-coverage)
-    au FileType go nmap <Leader>gd <Plug>(go-doc)
-    au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-    au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-    au FileType go nmap <Leader>i <Plug>(go-info)
-    au FileType go nmap <Leader>s <Plug>(go-implements)
-    au FileType go nmap <Leader>m <Plug>(go-rename)
-Plugin 'majutsushi/tagbar'
-    nmap <c-t> :TagbarToggle<CR>
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'scrooloose/syntastic' " Syntax highlighting
 Plugin 'vim-scripts/SyntaxRange' 	 " Allow ranges within a file to define different syntax mappings
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Shougo/neocomplete.vim'
+    let g:neocomplete#enable_at_startup = 1
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'bling/vim-airline'
 
+""" COLORS
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-vividchalk'
-Plugin 'honza/dockerfile.vim'
-Plugin 'bling/vim-airline'       " UI statusbar niceties
-  set laststatus=2               " enable airline even if no splits
-  let g:airline_theme='luna'
-  let g:airline_powerline_fonts=1
-  let g:airline_enable_branch=1
-  let g:airline_enable_syntastic=1
-  let g:airline_powerline_fonts = 1
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_linecolumn_prefix = '␊ '
-  let g:airline_linecolumn_prefix = '␤ '
-  let g:airline_linecolumn_prefix = '¶ '
-  let g:airline_branch_prefix = '⎇ '
-  let g:airline_paste_symbol = 'ρ'
-  let g:airline_paste_symbol = 'Þ'
-  let g:airline_paste_symbol = '∥'
-  let g:airline#extensions#tabline#enabled = 0
-  let g:airline_mode_map = {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'REPLACE',
-        \ 'v' : 'VISUAL',
-        \ 'V' : 'V-LINE',
-        \ 'c' : 'CMD   ',
-        \ '': 'V-BLCK',
-        \ }
 Plugin 'dandorman/vim-colors'
 
-Plugin 'kien/ctrlp.vim.git'
+""" UTIL
 Plugin 'tpope/vim-vinegar'
+Plugin 'zimbatm/direnv.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
